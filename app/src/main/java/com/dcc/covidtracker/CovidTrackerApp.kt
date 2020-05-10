@@ -6,12 +6,17 @@ import android.content.Context
 import android.os.Bundle
 import androidx.multidex.BuildConfig
 import androidx.multidex.MultiDex
+import com.dcc.covidtracker.localDatabase.roomDatabase.RoomDatabase
 import com.dcc.covidtracker.localDatabase.sharedPreference.SharedPreferenceImpl
 import com.example.chatbotdemo.utility.ReleaseApkTreeLog
 import timber.log.Timber
 
 
-class TrackerApplication : Application(), Application.ActivityLifecycleCallbacks {
+class CovidTrackerApp : Application(), Application.ActivityLifecycleCallbacks {
+
+    /**
+     * Room Database*/
+    private lateinit var covidDatabase: RoomDatabase
 
     /**
      * SharedPreference*/
@@ -43,7 +48,7 @@ class TrackerApplication : Application(), Application.ActivityLifecycleCallbacks
     /**
      * Static Field*/
     companion object {
-        private lateinit var instance: TrackerApplication
+        private lateinit var instance: CovidTrackerApp
 
 
         fun isInterestingActivityVisible(): Boolean {
@@ -62,6 +67,13 @@ class TrackerApplication : Application(), Application.ActivityLifecycleCallbacks
         fun getPref(): SharedPreferenceImpl {
             //Timber.e( "LocalDatabase--SharedPref")
             return instance.sharedPreference
+        }
+
+        /**
+         *getting RoomDatabase through application class*/
+        fun getRoomDatabase(): RoomDatabase {
+            //Timber.e( "Room--LocalDatabase")
+            return instance.covidDatabase
         }
 
     }
