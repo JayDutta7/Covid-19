@@ -80,10 +80,10 @@ dependencies {
     //Timber-Log
     implementation "com.jakewharton.timber:timber:$timberLog"
     // Room dependencies(Database)
-//    implementation "androidx.room:room-runtime:$roomDatabase"
-//    kapt "androidx.room:room-compiler:$roomDatabase"
+    implementation "androidx.room:room-runtime:$roomDatabase"
+    kapt "androidx.room:room-compiler:$roomDatabase"
 //    // optional - Kotlin Extensions and Rxjava2 support for Room
-//    implementation "androidx.room:room-rxjava2:$roomDatabase"
+    implementation "androidx.room:room-rxjava2:$roomDatabase"
     //Glide
     implementation "com.github.bumptech.glide:glide:$glidE"
     //annotaionation processor for java kapt for kotlin
